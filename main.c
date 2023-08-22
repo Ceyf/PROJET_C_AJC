@@ -11,10 +11,10 @@ int main(int argc, char** argv){
     printf("%d\n", joueur.or_joueur);
 
     printf("Joueur : %d\n", joueur.productionBois);
-    assigner_villageois(&joueur);
+    
     
     construction(3, &joueur);
-
+    assigner_villageois(&joueur);
     printf("Joueur : %d\n", joueur.or_joueur);
 
     menu(&joueur);

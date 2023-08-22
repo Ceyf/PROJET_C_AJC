@@ -1,7 +1,7 @@
 #include "main_header.h"
 
 
-int construction(int bat, Ressources_Joueur *joueur)
+void construction(int bat, Ressources_Joueur *joueur)
 {
     //printf("constr : %d\n", joueur->or_joueur);
     switch(bat)
