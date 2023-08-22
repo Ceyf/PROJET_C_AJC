@@ -7,6 +7,8 @@ int main(int argc, char** argv){
     init_templates_batiments(templates_batiments);
     initialisation_joueur(&joueur);
 
+    menu(&joueur);
+
     free(joueur.batiments_construits);
     return 0;
 }
