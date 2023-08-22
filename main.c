@@ -7,7 +7,7 @@ int main(int argc, char** argv){
     initialisation_joueur(&joueur);
 //    assigner_villageois(joueur,batiment);
 
-    
+
     menu(&joueur);
     free(joueur.batiments_construits);
     return 0;
