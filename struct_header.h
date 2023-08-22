@@ -26,6 +26,9 @@ typedef struct Ressources_Joueur
     int or_joueur;
     int bois;
     int mat_noire;
+    int productionBois;
+    int productionOr;
+    int productionMatNoire;
     
 }Ressources_Joueur;
 

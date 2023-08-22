@@ -11,6 +11,10 @@ void initialisation_joueur(Ressources_Joueur *rjoueur)
     rjoueur->batiments_construits = (Batiment*)malloc(sizeof(Batiment));
     rjoueur->batiments_construits[0].niveau = 1;
     rjoueur->batiments_construits[0].nom = "Hôtel de ville";
+    rjoueur->productionBois = 0;
+    rjoueur->productionOr = 0;
+    rjoueur->productionMatNoire = 0;
+    rjoueur->nb_batiments = 1;
 }
 
 void init_templates_batiments(Batiment* templates_batiments){
@@ -39,3 +43,16 @@ void init_templates_batiments(Batiment* templates_batiments){
 }
 
 
+void menu(Ressources_Joueur *rjoueur){
+    int menu = 0;
+
+    do
+    {
+        printf("Votre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\n1- Construire un bâtiment\n5- Quitter le jeu\n"
+        , rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
+        rjoueur->villageois_disponibles);
+
+        scanf("%d", &menu);
+    } while(menu != 5);
+    printf("\n\n\n\n\n------------------------------------\n\tMerci d'avoir joué!\n------------------------------------\n\n\n\n\n");
+}
