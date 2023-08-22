@@ -37,3 +37,5 @@ void init_templates_batiments(Batiment* templates_batiments){
     templates_batiments[3].cout_bois = 50;
     templates_batiments[3].villageois_necessaires = 4;
 }
+
+
