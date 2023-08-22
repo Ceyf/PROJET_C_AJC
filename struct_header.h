@@ -14,7 +14,7 @@ typedef struct Batiment
     int production_or;
     int production_bois;
     int production_mat_noire;
-    bool active;
+    int active;
 }Batiment;
 
 typedef struct Ressources_Joueur

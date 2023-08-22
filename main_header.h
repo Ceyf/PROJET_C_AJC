@@ -12,8 +12,8 @@
 //PROTOTYPES
 void initialisation_joueur(Ressources_Joueur *rjoueur);
 void init_templates_batiments(Batiment* templates_batiments);
-int construction(int *bat, Ressources_Joueur *joueur);
-void assigner_villageois(Ressources_Joueur* joueur,Batiment *batiment);
+int construction(int bat, Ressources_Joueur *joueur);
+//void assigner_villageois(Ressources_Joueur* joueur,Batiment *batiment);
 void menu(Ressources_Joueur *rjoueur);
 void afficher_batiments(Ressources_Joueur *rjoueur);
 void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiment);
