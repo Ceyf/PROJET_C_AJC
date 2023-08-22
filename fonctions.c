@@ -81,17 +81,29 @@ void afficher_batiments(Ressources_Joueur *rjoueur){
         printf("%d Casernes\n", nb_batiment[3]);
 }
 
+void collecter_ressources(Ressources_Joueur *rjoueur){
+    rjoueur->or_joueur += rjoueur->productionOr;
+    rjoueur->bois += rjoueur->productionBois;
+    rjoueur->mat_noire += rjoueur->mat_noire;
+}
+
 void menu(Ressources_Joueur *rjoueur){
     int menu = 0;
+    int tour = 0;
 
     do
     {
-        printf("Votre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\nBatiments construits:\n"
-        , rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
+        tour++;
+        collecter_ressources(rjoueur);
+
+        printf("Tour %d\nVotre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\nBatiments construits:\n"
+        , tour, rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
         rjoueur->villageois_disponibles);
+
         afficher_batiments(rjoueur);
-        printf("1- Construire un bâtiment\n5- Quitter le jeu\n");
+
+        printf("1- Construire un bâtiment\n4- Passer le tour\n5- Quitter le jeu\n");
         scanf("%d", &menu);
-    } while(menu != 5);
+    } while(menu < 5 && menu > 0);
     printf("\n\n\n\n\n------------------------------------\n\tMerci d'avoir joué!\n------------------------------------\n\n\n\n\n");
 }
