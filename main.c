@@ -12,9 +12,16 @@ int main(int argc, char** argv){
 
     printf("Joueur : %d\n", joueur.productionBois);
     
-    
     construction(3, &joueur);
+    construction(2, &joueur);
+     afficher_batiments(&joueur);
+    construction(2, &joueur);
+     afficher_batiments(&joueur);
+    construction(3, &joueur);
+    afficher_batiments(&joueur);
+  //  printf("%d",joueur->);
     assigner_villageois(&joueur);
+    printf("ici2");
     printf("Joueur : %d\n", joueur.or_joueur);
 
     menu(&joueur);

@@ -3,18 +3,20 @@
 
 void initialisation_joueur(Ressources_Joueur *rjoueur)
 {
+
     rjoueur->nb_villageois = 10;
     rjoueur->villageois_disponibles = 10;
-    rjoueur->or_joueur = 1000;
-    rjoueur->bois = 200;
-    rjoueur->mat_noire = 100;
-    rjoueur->batiments_construits = (Batiment*)malloc(sizeof(Batiment));
+    rjoueur->or_joueur = 10000;
+    rjoueur->bois = 2000;
+    rjoueur->mat_noire = 1000;
+    rjoueur->batiments_construits = (Batiment*)malloc(sizeof(Batiment)*150);
     rjoueur->batiments_construits[0].niveau = 1;
     rjoueur->batiments_construits[0].nom = "Hôtel de ville";
     rjoueur->productionBois = 0;
     rjoueur->productionOr = 0;
     rjoueur->productionMatNoire = 0;
     rjoueur->nb_batiments = 1;
+
 }
 
 void init_templates_batiments(Batiment* templates_batiments){
@@ -43,7 +45,11 @@ void init_templates_batiments(Batiment* templates_batiments){
 }
 
 void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiments){
-    for(int i = 0;i < rjoueur->nb_batiments; i++){
+        printf("actif\n");
+    for(int i = 0;i < rjoueur->nb_batiments-1; i++){
+       // printf("rjoueur->batiments_construits[i].nom : %s\n", rjoueur->batiments_construits[i].nom);
+        if(rjoueur->batiments_construits[i].nom != '\0' || rjoueur->batiments_construits[i].nom != NULL )
+        {
         if(!strcmp(rjoueur->batiments_construits[i].nom, "Mine"))
             nb_batiments[0]++;
         if(!strcmp(rjoueur->batiments_construits[i].nom, "Scierie"))
@@ -51,7 +57,7 @@ void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiments){
         if(!strcmp(rjoueur->batiments_construits[i].nom, "Raffinerie"))
             nb_batiments[2]++;
         if(!strcmp(rjoueur->batiments_construits[i].nom, "Caserne"))
-            nb_batiments[3]++;
+            nb_batiments[3]++;}
     }
 }
 void afficher_batiments(Ressources_Joueur *rjoueur){

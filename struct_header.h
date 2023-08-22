@@ -23,6 +23,7 @@ typedef struct Ressources_Joueur
     int villageois_disponibles;
     Batiment *batiments_construits;
     int nb_batiments;
+    int mine;
     int or_joueur;
     int bois;
     int mat_noire;

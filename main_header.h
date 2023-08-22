@@ -20,8 +20,6 @@ void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiment);
 void nb_types_batiment_inactif(Ressources_Joueur* rjoueur, int* nb_batiments);
 void construction(int bat, Ressources_Joueur *joueur);
 void menu(Ressources_Joueur *rjoueur);
-void afficher_batiments(Ressources_Joueur *rjoueur);
-void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiment);
 void collecter_ressources(Ressources_Joueur *rjoueur);
 
 #endif
