@@ -2,9 +2,12 @@
 
 int main(int argc, char** argv){
 
+    Ressources_Joueur joueur;
+    initialisation_joueur(&joueur);
 
-    Ressources_Joueur joueur1;
-    initiatilisation_joueur(&joueur1);
-    printf("bois : %d\n",joueur1.bois);
+    printf("bois : %d\n",joueur.bois);
+    printf("Batiment joueur : %s\n",joueur.batiments_construits->nom);
+
+    free(joueur.batiments_construits);
     return 0;
 }
