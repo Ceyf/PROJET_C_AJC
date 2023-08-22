@@ -5,12 +5,7 @@ int main(int argc, char** argv){
     Batiment templates_batiments[4];
     init_templates_batiments(templates_batiments);
     initialisation_joueur(&joueur);
-    assigner_villageois(joueur,batiment);
-    printf("%d", joueur.or_joueur);
-
-    construction('Scierie', &joueur);
-
-    printf("Joueur : %d\n", joueur.productionBois);
+//    assigner_villageois(joueur,batiment);
 
     
     menu(&joueur);
