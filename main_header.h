@@ -10,5 +10,7 @@
 
 //PROTOTYPES
 void initialisation_joueur(Ressources_Joueur *rjoueur);
+void init_templates_batiments(Batiment* templates_batiments);
+void construction(char *bat, Ressources_Joueur *joueur);
 
 #endif

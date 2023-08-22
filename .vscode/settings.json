@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "main_header.h": "c"
+        "main_header.h": "c",
+        "struct_header.h": "c",
+        "stdio.h": "c"
     }
 }

@@ -11,6 +11,9 @@ typedef struct Batiment
     int cout_mat_noire;
     int villageois_necessaires;
     int villageois_assignes;
+    int production_or;
+    int production_bois;
+    int production_mat_noire;
 }Batiment;
 
 typedef struct Ressources_Joueur
@@ -22,6 +25,9 @@ typedef struct Ressources_Joueur
     int or_joueur;
     int bois;
     int mat_noire;
+    int productionBois;
+    int productionOr;
+    int productionMatNoire;
     
 }Ressources_Joueur;
 

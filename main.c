@@ -3,9 +3,19 @@
 int main(int argc, char** argv){
 
     Ressources_Joueur joueur;
+    Batiment templates_batiments[4];
+    
+    init_templates_batiments(templates_batiments);
     initialisation_joueur(&joueur);
 
-    printf("bois : %d\n",joueur.bois);
-    printf("Batiment joueur : %s\n",joueur.batiments_construits->nom);
+    printf("%d", joueur.or_joueur);
+
+    construction('Scierie', &joueur);
+
+    printf("Joueur : %d\n", joueur.productionBois);
+
+    
+
+    free(joueur.batiments_construits);
     return 0;
 }
