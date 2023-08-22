@@ -9,6 +9,7 @@ typedef struct Batiment
     int cout_bois;
     int cout_mat_noire;
     int villageois_necessaires;
+    int villageois_assignes;
 }Batiment;
 
 typedef struct Ressources_Joueur
