@@ -5,7 +5,6 @@ int main(int argc, char** argv){
     Batiment templates_batiments[4];
     init_templates_batiments(templates_batiments);
     initialisation_joueur(&joueur);
-    
 
     menu(&joueur);
     free(joueur.batiments_construits);
