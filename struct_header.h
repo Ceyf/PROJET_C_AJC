@@ -1,0 +1,6 @@
+#ifndef STRUCT_HEADER_H
+#define STRUCT_HEADER_H
+//STRUCTURES
+
+
+#endif
