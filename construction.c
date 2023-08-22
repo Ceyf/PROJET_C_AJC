@@ -1,20 +1,61 @@
 #include "main_header.h"
 
 
-void construction(char * bat, Ressources_Joueur *joueur)
+int construction(int * bat, Ressources_Joueur *joueur)
 {
     //printf("constr : %d\n", joueur->or_joueur);
-    if(bat == 'Scierie')
+    switch(*bat)
     {
-        if(joueur->or_joueur >= 50)
-        {
-            joueur->nb_batiments++;
-            joueur->batiments_construits = (Batiment*)realloc(joueur->batiments_construits, sizeof(Batiment) * joueur->nb_batiments);
-            joueur->productionBois += 20;
-            joueur->or_joueur -= 50;
-            //joueur->villageois_disponibles -= 2;
-        }
-
+        case 1: if(joueur->or_joueur >= 50)
+                {
+                    joueur->nb_batiments++;
+                    joueur->batiments_construits = (Batiment*)realloc(joueur->batiments_construits, sizeof(Batiment) * joueur->nb_batiments);
+                    joueur->productionBois += 20;
+                    joueur->or_joueur -= 50;
+                }
+            break;
+        case 2: if(joueur->or_joueur >= 100 && joueur->bois >= 20)
+                {
+                    joueur->nb_batiments++;
+                    joueur->batiments_construits = (Batiment*)realloc(joueur->batiments_construits, sizeof(Batiment) * joueur->nb_batiments);
+                    joueur->productionOr += 50;
+                    joueur->or_joueur -= 100;
+                    joueur->bois -= 20;
+                }
+            break;
+        case 3: if(joueur->or_joueur >= 500 && joueur->bois >= 100 && joueur->mat_noire >= 50)
+                {
+                    joueur->nb_batiments++;
+                    joueur->batiments_construits = (Batiment*)realloc(joueur->batiments_construits, sizeof(Batiment) * joueur->nb_batiments);
+                    joueur->productionMatNoire += 10;
+                    joueur->or_joueur -= 500;
+                    joueur->bois -= 100;
+                    joueur->mat_noire -= 50;
+                }
+            break;
+        case 4: if(joueur->or_joueur >= 200 && joueur->bois >= 50)
+                {
+                    joueur->nb_batiments++;
+                    joueur->batiments_construits = (Batiment*)realloc(joueur->batiments_construits, sizeof(Batiment) * joueur->nb_batiments);
+                    joueur->bois -= 50;
+                    joueur->or_joueur -= 200;
+                }
+            break;
     }
+    // if(bat == 'Scierie')
+    // {
+        
+    // }
+    // if(bat == 'Mine')
+    // {
+    // }
+    // if(bat == 'Raffinerie')
+    // {
+        
+    // }
+    // if(strcmp("Caserne", bat))
+    // {
+       
+    // }
 
 }
