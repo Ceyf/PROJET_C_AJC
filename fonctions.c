@@ -41,3 +41,17 @@ void init_templates_batiments(Batiment* templates_batiments){
     templates_batiments[3].cout_bois = 50;
     templates_batiments[3].villageois_necessaires = 4;
 }
+
+void menu(Ressources_Joueur *rjoueur){
+    int menu = 0;
+
+    do
+    {
+        printf("Votre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\n1- Construire un bâtiment\n5- Quitter le jeu\n"
+        , rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
+        rjoueur->villageois_disponibles);
+
+        scanf("%d", &menu);
+    } while(menu != 5);
+    printf("\n\n\n\n\n------------------------------------\n\tMerci d'avoir joué!\n------------------------------------\n\n\n\n\n");
+}

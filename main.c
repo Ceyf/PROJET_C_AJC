@@ -15,6 +15,7 @@ int main(int argc, char** argv){
     printf("Joueur : %d\n", joueur.productionBois);
 
     
+    menu(&joueur);
 
     free(joueur.batiments_construits);
     return 0;
