@@ -7,5 +7,7 @@ int main(int argc, char** argv){
 
     printf("bois : %d\n",joueur.bois);
     printf("Batiment joueur : %s\n",joueur.batiments_construits->nom);
+
+    free(joueur.batiments_construits);
     return 0;
 }
