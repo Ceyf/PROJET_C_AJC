@@ -14,6 +14,7 @@ void initialisation_joueur(Ressources_Joueur *rjoueur)
     rjoueur->productionBois = 0;
     rjoueur->productionOr = 0;
     rjoueur->productionMatNoire = 0;
+    rjoueur->production_villageois = 0;
     rjoueur->nb_batiments = 1;
 }
 
@@ -84,7 +85,7 @@ void afficher_batiments(Ressources_Joueur *rjoueur){
 void collecter_ressources(Ressources_Joueur *rjoueur){
     rjoueur->or_joueur += rjoueur->productionOr;
     rjoueur->bois += rjoueur->productionBois;
-    rjoueur->mat_noire += rjoueur->mat_noire;
+    rjoueur->mat_noire += rjoueur->productionMatNoire;
 }
 
 void menu(Ressources_Joueur *rjoueur){
@@ -93,8 +94,10 @@ void menu(Ressources_Joueur *rjoueur){
 
     do
     {
-        tour++;
-        collecter_ressources(rjoueur);
+        if(menu == 4){
+            tour++;
+            collecter_ressources(rjoueur);
+        }
 
         printf("Tour %d\nVotre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\nBatiments construits:\n"
         , tour, rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
