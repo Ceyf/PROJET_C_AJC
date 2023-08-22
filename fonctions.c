@@ -9,44 +9,24 @@ void initialisation_joueur(Ressources_Joueur *rjoueur)
     rjoueur->or_joueur = 10000;
     rjoueur->bois = 2000;
     rjoueur->mat_noire = 1000;
+    rjoueur->or_joueur = 1000;
+    rjoueur->bois = 200;
+    rjoueur->mat_noire = 100;
     rjoueur->batiments_construits = (Batiment*)malloc(sizeof(Batiment)*150);
     rjoueur->batiments_construits[0].niveau = 1;
     rjoueur->batiments_construits[0].nom = "Hôtel de ville";
     rjoueur->productionBois = 0;
     rjoueur->productionOr = 0;
     rjoueur->productionMatNoire = 0;
+    rjoueur->production_villageois = 0;
     rjoueur->nb_batiments = 1;
 
 }
 
-void init_templates_batiments(Batiment* templates_batiments){
-    templates_batiments[0].nom = "Scierie";
-    templates_batiments[0].cout_or = 50;
-    templates_batiments[0].villageois_necessaires = 2;
-    templates_batiments[0].production_bois = 20;
-
-    templates_batiments[1].nom = "Mine";
-    templates_batiments[1].cout_or = 100;
-    templates_batiments[1].cout_bois = 20;
-    templates_batiments[1].villageois_necessaires = 3;
-    templates_batiments[1].production_or = 50;
-
-    templates_batiments[2].nom = "Raffinerie";
-    templates_batiments[2].cout_or = 500;
-    templates_batiments[2].cout_bois = 100;
-    templates_batiments[2].cout_mat_noire = 50;
-    templates_batiments[2].villageois_necessaires = 5;
-    templates_batiments[2].production_mat_noire = 10;
-
-    templates_batiments[3].nom = "Caserne";
-    templates_batiments[3].cout_or = 200;
-    templates_batiments[3].cout_bois = 50;
-    templates_batiments[3].villageois_necessaires = 4;
-}
 
 void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiments){
         printf("actif\n");
-    for(int i = 0;i < rjoueur->nb_batiments-1; i++){
+    for(int i = 0;i < rjoueur->nb_batiments; i++){
        // printf("rjoueur->batiments_construits[i].nom : %s\n", rjoueur->batiments_construits[i].nom);
         if(rjoueur->batiments_construits[i].nom != '\0' || rjoueur->batiments_construits[i].nom != NULL )
         {
@@ -60,10 +40,10 @@ void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiments){
             nb_batiments[3]++;}
     }
 }
+
 void afficher_batiments(Ressources_Joueur *rjoueur){
     int nb_batiment[4] = {0, 0, 0, 0};
     nb_types_batiment(rjoueur, nb_batiment);
-    
     printf("1 Hotel de ville de niveau %d\n", rjoueur->batiments_construits[0].niveau);
 
     if(nb_batiment[0] == 1)
@@ -90,26 +70,51 @@ void afficher_batiments(Ressources_Joueur *rjoueur){
 void collecter_ressources(Ressources_Joueur *rjoueur){
     rjoueur->or_joueur += rjoueur->productionOr;
     rjoueur->bois += rjoueur->productionBois;
-    rjoueur->mat_noire += rjoueur->mat_noire;
+    rjoueur->mat_noire += rjoueur->productionMatNoire;
+    rjoueur->nb_villageois += rjoueur->production_villageois;
+    rjoueur->villageois_disponibles += rjoueur->production_villageois;
 }
 
+// Menu du joueur
 void menu(Ressources_Joueur *rjoueur){
+
+    // Initialisation des variables
     int menu = 0;
-    int tour = 0;
+    int tour = 1;
 
-    do
+    // Menu 
+    while(menu != 4)
     {
-        tour++;
-        collecter_ressources(rjoueur);
-
         printf("Tour %d\nVotre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\nBatiments construits:\n"
         , tour, rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
         rjoueur->villageois_disponibles);
 
+        // Affichage de la liste des batiments du joueur
         afficher_batiments(rjoueur);
+        printf("\n");
 
-        printf("1- Construire un bâtiment\n4- Passer le tour\n5- Quitter le jeu\n");
+        // Actions 
+        printf("1- Construire un batiment\n2- Assigner des villageois aux batiments\n3- Finir le tour\n4- Quitter le jeu\n");
         scanf("%d", &menu);
-    } while(menu < 5 && menu > 0);
-    printf("\n\n\n\n\n------------------------------------\n\tMerci d'avoir joué!\n------------------------------------\n\n\n\n\n");
+    
+        // Suivant le choix, le switch execute une action
+        switch(menu)
+        {
+            case 1: printf("A completer 1\n");
+                break;
+            case 2: printf("A completer 2\n");
+                break;
+            case 3: printf("Vous terminez votre tour, vous collectez les ressources disponibles des batiments\n");
+                    printf("\n");
+                    collecter_ressources(rjoueur);
+                    tour++;
+                break;
+            // Fin du jeu
+            case 4:  printf("\n\n\n\n\n------------------------------------\n\tMerci d'avoir joué!\n------------------------------------\n\n\n\n\n");
+                break;
+            // En cas d'erreur
+            default:  printf("Erreur de saisie, veuillez recommencer \n");
+                break;
+        }
+    }
 }

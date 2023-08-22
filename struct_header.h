@@ -30,6 +30,7 @@ typedef struct Ressources_Joueur
     int productionBois;
     int productionOr;
     int productionMatNoire;
+    int production_villageois;
     
 }Ressources_Joueur;
 

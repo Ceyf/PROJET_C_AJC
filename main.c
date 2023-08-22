@@ -23,6 +23,7 @@ int main(int argc, char** argv){
     assigner_villageois(&joueur);
     printf("ici2");
     printf("Joueur : %d\n", joueur.or_joueur);
+    
 
     menu(&joueur);
     free(joueur.batiments_construits);

@@ -1,7 +1,5 @@
 #include "main_header.h"
 
-
-
 void assigner_villageois(Ressources_Joueur* joueur)
 {
     while(1){
@@ -43,7 +41,7 @@ void assigner_villageois(Ressources_Joueur* joueur)
 
 void nb_types_batiment_inactif(Ressources_Joueur* rjoueur, int* nb_batiments){
 
-    for(int i = 0;i < rjoueur->nb_batiments-1; i++){
+    for(int i = 0;i < rjoueur->nb_batiments; i++){
         if(!strcmp(rjoueur->batiments_construits[i].nom, "Mine") && !rjoueur->batiments_construits->active)
             nb_batiments[0]++;
             
