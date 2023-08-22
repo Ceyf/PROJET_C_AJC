@@ -72,6 +72,7 @@ void menu(Ressources_Joueur *rjoueur){
     // Initialisation des variables
     int menu = 0;
     int tour = 1;
+    int rep = 0;
 
     // Menu 
     while(menu != 4)
@@ -91,9 +92,15 @@ void menu(Ressources_Joueur *rjoueur){
         // Suivant le choix, le switch execute une action
         switch(menu)
         {
-            case 1: printf("A completer 1\n");
+            case 1: // Créer un batiment
+                    printf("Construire le Batiment :\n1- Batiment Scierie\n2- Batiment Mine\n3- Batiment Raffinerie\n4- Batiment Caserne\n");
+                    scanf("%d", &rep);
+                    construction(rep, rjoueur);
+                    printf("\n");
                 break;
-            case 2: printf("A completer 2\n");
+            case 2: // Assigner les villageois
+                    assigner_villageois(rjoueur);
+                    printf("\n");
                 break;
             case 3: printf("Vous terminez votre tour, vous collectez les ressources disponibles des batiments\n");
                     printf("\n");
