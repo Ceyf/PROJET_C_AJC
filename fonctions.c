@@ -14,33 +14,10 @@ void initialisation_joueur(Ressources_Joueur *rjoueur)
     rjoueur->productionBois = 0;
     rjoueur->productionOr = 0;
     rjoueur->productionMatNoire = 0;
+    rjoueur->production_villageois = 0;
     rjoueur->nb_batiments = 1;
 }
 
-void init_templates_batiments(Batiment* templates_batiments){
-    templates_batiments[0].nom = "Scierie";
-    templates_batiments[0].cout_or = 50;
-    templates_batiments[0].villageois_necessaires = 2;
-    templates_batiments[0].production_bois = 20;
-
-    templates_batiments[1].nom = "Mine";
-    templates_batiments[1].cout_or = 100;
-    templates_batiments[1].cout_bois = 20;
-    templates_batiments[1].villageois_necessaires = 3;
-    templates_batiments[1].production_or = 50;
-
-    templates_batiments[2].nom = "Raffinerie";
-    templates_batiments[2].cout_or = 500;
-    templates_batiments[2].cout_bois = 100;
-    templates_batiments[2].cout_mat_noire = 50;
-    templates_batiments[2].villageois_necessaires = 5;
-    templates_batiments[2].production_mat_noire = 10;
-
-    templates_batiments[3].nom = "Caserne";
-    templates_batiments[3].cout_or = 200;
-    templates_batiments[3].cout_bois = 50;
-    templates_batiments[3].villageois_necessaires = 4;
-}
 
 void nb_types_batiment(Ressources_Joueur* rjoueur, int* nb_batiments){
     for(int i = 0;i < rjoueur->nb_batiments; i++){
@@ -84,7 +61,9 @@ void afficher_batiments(Ressources_Joueur *rjoueur){
 void collecter_ressources(Ressources_Joueur *rjoueur){
     rjoueur->or_joueur += rjoueur->productionOr;
     rjoueur->bois += rjoueur->productionBois;
-    rjoueur->mat_noire += rjoueur->mat_noire;
+    rjoueur->mat_noire += rjoueur->productionMatNoire;
+    rjoueur->nb_villageois += rjoueur->production_villageois;
+    rjoueur->villageois_disponibles += rjoueur->production_villageois;
 }
 
 // Menu du joueur
@@ -92,32 +71,31 @@ void menu(Ressources_Joueur *rjoueur){
 
     // Initialisation des variables
     int menu = 0;
-    int tour = 0;
+    int tour = 1;
 
     // Menu 
     while(menu != 4)
     {
-        printf("Tour %d\nVotre village a %d Or, %d Bois, %d Matiere noire et %d villageois prêts à travailler\n\nBatiments construits:\n"
+        printf("Tour %d\nVotre village a %d Or, %d Bois, %d Matière noire et %d villageois prêts à travailler\n\nBatiments construits:\n"
         , tour, rjoueur->or_joueur, rjoueur->bois, rjoueur->mat_noire, 
         rjoueur->villageois_disponibles);
 
         // Affichage de la liste des batiments du joueur
         afficher_batiments(rjoueur);
+        printf("\n");
 
         // Actions 
-        printf("1- Construire un batiment\n2- Assigner des villageois aux batiments\n3- Passer le tour\n4- Quitter le jeu\n");
+        printf("1- Construire un batiment\n2- Assigner des villageois aux batiments\n3- Finir le tour\n4- Quitter le jeu\n");
         scanf("%d", &menu);
     
         // Suivant le choix, le switch execute une action
         switch(menu)
         {
             case 1: printf("A completer 1\n");
-                    tour++;
                 break;
             case 2: printf("A completer 2\n");
-                    tour++;
                 break;
-            case 3: printf("Vous passez votre tour, vous collectez les ressources disponibles des batiments\n");
+            case 3: printf("Vous terminez votre tour, vous collectez les ressources disponibles des batiments\n");
                     printf("\n");
                     collecter_ressources(rjoueur);
                     tour++;
