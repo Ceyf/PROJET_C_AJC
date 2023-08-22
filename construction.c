@@ -4,7 +4,7 @@
 void construction(char * bat, Ressources_Joueur *joueur)
 {
     //printf("constr : %d\n", joueur->or_joueur);
-    if(bat == 'Scierie')
+    if(bat == "Scierie")
     {
         if(joueur->or_joueur >= 50)
         {
