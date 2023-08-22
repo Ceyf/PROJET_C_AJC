@@ -46,3 +46,4 @@ void nb_types_batiment_inactif(Ressources_Joueur* rjoueur, int* nb_batiments){
             nb_batiments[3]++;
     }
 }
+
