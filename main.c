@@ -1,13 +1,11 @@
 #include "main_header.h"
 
 int main(int argc, char** argv){
-
     Ressources_Joueur joueur;
     Batiment templates_batiments[4];
-    
     init_templates_batiments(templates_batiments);
     initialisation_joueur(&joueur);
-
+    assigner_villageois(joueur,batiment);
     printf("%d", joueur.or_joueur);
 
     construction('Scierie', &joueur);
@@ -17,8 +15,7 @@ int main(int argc, char** argv){
     printf("Joueur : %d\n", joueur.productionBois);
 
     
-   // menu(&joueur);
-
+    menu(&joueur);
     free(joueur.batiments_construits);
     return 0;
 }
