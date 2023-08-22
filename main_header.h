@@ -9,4 +9,6 @@
 
 
 //PROTOTYPES
+void initialisation_joueur(Ressources_Joueur *rjoueur);
+
 #endif
